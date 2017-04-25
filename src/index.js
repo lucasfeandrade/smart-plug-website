@@ -7,12 +7,16 @@ import loginStore from './stores/loginStore'
 import Login from './components/Login'
 import './css/main.css'
 
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
 const stores = { loginStore }
 const app = document.getElementById('app')
 ReactDOM.render(
-  <Provider {...stores}>
-    <Router history={browserHistory}>
-      <Route path='/' component={Login}/>
-    </Router>
-  </Provider>,
+  <MuiThemeProvider>
+    <Provider {...stores}>
+      <Router history={browserHistory}>
+        <Route path='/' component={Login}/>
+      </Router>
+    </Provider>
+  </MuiThemeProvider>,
   app)
