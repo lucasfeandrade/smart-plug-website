@@ -5,6 +5,7 @@ import { Provider } from 'mobx-react'
 
 import loginStore from './stores/loginStore'
 import Login from './components/Login'
+import CreateUser from './components/CreateUser'
 import './css/main.css'
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -15,7 +16,8 @@ ReactDOM.render(
   <MuiThemeProvider>
     <Provider {...stores}>
       <Router history={browserHistory}>
-        <Route path='/' component={Login}/>
+        <Route path='/login' component={Login}/>
+        <Route path='/newaccount' component={CreateUser}/>
       </Router>
     </Provider>
   </MuiThemeProvider>,

@@ -11,8 +11,9 @@ app.use(morgan(':remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:htt
 app.use(express.static(path.resolve(__dirname, '..', 'src')));
 
 // Always return the main index.html, so react-router render the route in the client
-app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '..', 'src', 'index.html'));
+app.get('/api', (req, res) => {
+  // res.sendFile(path.resolve(__dirname, '..', 'src', 'index.html'));
+  res.status(204).json({test: 'this is a test'})
 });
 
 module.exports = app;
