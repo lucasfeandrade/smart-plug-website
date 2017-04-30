@@ -29,13 +29,13 @@ export default class Login extends Component {
     fetch('/api',{
       accept: 'application/json',
     }).then(function(res) {
-      console.log(JSON.stringify(res))
-      console.log(res.body)
-      var contentType = res.headers.get("content-type");
+      let contentType = res.headers.get("content-type");
       if(contentType && contentType.indexOf("application/json") !== -1) {
-        console.log(res.json())
+          return res.json();
       }
-  })
+    }).then(function(data) {
+      console.log(data);  // { "userId": 1, "id": 1, "title": "...", "body": "..." }
+    });
   }
 
   handleCreateAccount = () => {

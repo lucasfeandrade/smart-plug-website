@@ -13,7 +13,8 @@ app.use(express.static(path.resolve(__dirname, '..', 'src')));
 // Always return the main index.html, so react-router render the route in the client
 app.get('/api', (req, res) => {
   // res.sendFile(path.resolve(__dirname, '..', 'src', 'index.html'));
-  res.status(204).json({test: 'this is a test'})
+  res.setHeader('Content-Type', 'application/json');
+  res.json({test: 'this is a test'})
 });
 
 module.exports = app;
